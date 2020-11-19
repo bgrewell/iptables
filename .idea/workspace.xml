@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="446b9332-7147-404f-8b0c-d822ab3d74a7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pkg/balance.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/classify.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/connmark.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/dnat.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/dscp.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/execute.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/goto.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/jump.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/rule.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/snat.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/target.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/common.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/iptables.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/iptables.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/rules.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="ProjectId" id="1kT5gK15LBx2Oj0lB8ApwZPjsdq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="go.vgo" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pkg" />
+      <recent name="$PROJECT_DIR$/pkg/rules" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="iptables" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build main.go" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1657" height="375" key="GridCell.Tab.0.bottom" timestamp="1605821359637">
+      <screen x="0" y="27" width="3440" height="1356" />
+    </state>
+    <state width="1657" height="375" key="GridCell.Tab.0.bottom/0.27.3440.1356@0.27.3440.1356" timestamp="1605821359637" />
+    <state width="1657" height="375" key="GridCell.Tab.0.center" timestamp="1605821359637">
+      <screen x="0" y="27" width="3440" height="1356" />
+    </state>
+    <state width="1657" height="375" key="GridCell.Tab.0.center/0.27.3440.1356@0.27.3440.1356" timestamp="1605821359637" />
+    <state width="1657" height="375" key="GridCell.Tab.0.left" timestamp="1605821359636">
+      <screen x="0" y="27" width="3440" height="1356" />
+    </state>
+    <state width="1657" height="375" key="GridCell.Tab.0.left/0.27.3440.1356@0.27.3440.1356" timestamp="1605821359636" />
+    <state width="1657" height="375" key="GridCell.Tab.0.right" timestamp="1605821359637">
+      <screen x="0" y="27" width="3440" height="1356" />
+    </state>
+    <state width="1657" height="375" key="GridCell.Tab.0.right/0.27.3440.1356@0.27.3440.1356" timestamp="1605821359637" />
+    <state x="345" y="340" width="1022" height="737" key="SettingsEditor" timestamp="1605719639357">
+      <screen x="0" y="27" width="3440" height="1356" />
+    </state>
+    <state x="345" y="340" width="1022" height="737" key="SettingsEditor/0.27.3440.1356@0.27.3440.1356" timestamp="1605719639357" />
+  </component>
+</project>
