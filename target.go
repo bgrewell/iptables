@@ -1,4 +1,4 @@
-package pkg
+package iptables
 
 // ITarget is an interface for the target extensions
 type ITarget interface {
