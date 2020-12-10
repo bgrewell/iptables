@@ -40,7 +40,7 @@ func (t TargetDNat) String() string {
 
 // Returns if the target is valid when applied with the specified rule
 func (t TargetDNat) Validate(rule Rule) error {
-	// Only valid on the mangle table
+	// Only valid on the nat table
 	if rule.Table != TableNat {
 		return fmt.Errorf("target DNAT is only valid on the 'nat' table")
 	}
@@ -49,6 +49,9 @@ func (t TargetDNat) Validate(rule Rule) error {
 	}
 	if t.DestinationPort != "" && t.DestinationPortRange != "" && rule.Protocol.Value == "" {
 		return fmt.Errorf("target DNAT destination port(s) are only valid when a protocol is specified on the rule")
+	}
+	if t.DestinationIp == "" && t.DestinationIpRange == "" {
+		return fmt.Errorf("target DNAT requires a destination ip address or range")
 	}
 	return nil
 }
