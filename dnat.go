@@ -20,16 +20,18 @@ func (t TargetDNat) String() string {
 	parts := make([]string, 0)
 	parts = append(parts, "DNAT")
 	parts = append(parts, TargetDNatStr)
+	dstPart := ""
 	if t.DestinationIpRange != "" {
-		parts = append(parts, t.DestinationIpRange)
+		dstPart = t.DestinationIpRange
 	} else {
-		parts = append(parts, t.DestinationIp)
+		dstPart = t.DestinationIp
 	}
 	if t.DestinationPortRange != "" {
-		parts = append(parts, fmt.Sprintf(":%s", t.DestinationPortRange))
+		dstPart = fmt.Sprintf("%s:%s", dstPart, t.DestinationPortRange))
 	} else if t.DestinationPort != "" {
-		parts = append(parts, fmt.Sprintf(":%s", t.DestinationPort))
+		dstPart = fmt.Sprintf("%s:%s", dstPart, t.DestinationPort))
 	}
+	parts = append(parts, dstPart)
 
 	return TargetJump{
 		Value: strings.Join(parts, " "),
