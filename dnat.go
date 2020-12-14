@@ -27,9 +27,9 @@ func (t TargetDNat) String() string {
 		dstPart = t.DestinationIp
 	}
 	if t.DestinationPortRange != "" {
-		dstPart = fmt.Sprintf("%s:%s", dstPart, t.DestinationPortRange))
+		dstPart = fmt.Sprintf("%s:%s", dstPart, t.DestinationPortRange)
 	} else if t.DestinationPort != "" {
-		dstPart = fmt.Sprintf("%s:%s", dstPart, t.DestinationPort))
+		dstPart = fmt.Sprintf("%s:%s", dstPart, t.DestinationPort)
 	}
 	parts = append(parts, dstPart)
 
