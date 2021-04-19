@@ -1,8 +1,4 @@
-github.com/fatih/camelcase v1.0.0 h1:hxNvNX/xYBp0ovncs8WyWZrOrpBNub/JfaMvbURyft8=
-github.com/fatih/camelcase v1.0.0/go.mod h1:yN2Sb0lFhZJUdVvtELVWefmrXpuZESvPmqwoZc+/fpc=
-github.com/fatih/gomodifytags v1.13.0 h1:fmhwoecjZ5c34Q2chjRB9cL8Rgag+1TOSMy+grissMc=
-github.com/fatih/gomodifytags v1.13.0/go.mod h1:TbUyEjH1Zo0GkJd2Q52oVYqYcJ0eGNqG8bsiOb75P9c=
-github.com/fatih/structtag v1.2.0 h1:/OdNE99OxoI/PqaW/SuSK9uxxT3f/tcSZgon/ssNSx4=
-github.com/fatih/structtag v1.2.0/go.mod h1:mBJUNpUnHmRKrKlQQlmCrh5PuhftFbNv8Ys4/aAZl94=
-golang.org/x/tools v0.0.0-20180824175216-6c1c5e93cdc1 h1:EAPsk8kfGCjxQagrkWjzXlUWe2p3gj5MknO+z2o9GKc=
-golang.org/x/tools v0.0.0-20180824175216-6c1c5e93cdc1/go.mod h1:n7NCudcB/nEzxVGmLbDWY5pfWTLqBcC2KZ6jyYvM4mQ=
+github.com/BGrewell/go-conversions v0.0.0-20201203155646-5e189e4ca087 h1:/ZR3IHtTSPqwzYQSfZYwGjrmDI5c1u2jEDDtT75Fmqw=
+github.com/BGrewell/go-conversions v0.0.0-20201203155646-5e189e4ca087/go.mod h1:XtXcz/MP04vhr6c6R/5gZPJZVQpbXlFsKTHr5yy/5sU=
+github.com/BGrewell/go-execute v0.0.0-20210325210258-e4484647d522 h1:GsC5sium5qW4F1enaF7qqqNjoJn53i/Yg0IY0Gct1CQ=
+github.com/BGrewell/go-execute v0.0.0-20210325210258-e4484647d522/go.mod h1:vQZr3vuuuKuknvi74K22ne7NzOlwKTPKXOFMVr9Qa6A=

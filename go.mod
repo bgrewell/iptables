@@ -2,4 +2,4 @@ module github.com/BGrewell/iptables
 
 go 1.15
 
-require github.com/fatih/gomodifytags v1.13.0 // indirect
+require github.com/BGrewell/go-execute v0.0.0-20210325210258-e4484647d522

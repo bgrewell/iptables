@@ -2,6 +2,7 @@ package iptables
 
 import (
 	"fmt"
+	. "github.com/BGrewell/go-execute"
 	"os/exec"
 	"strconv"
 	"strings"

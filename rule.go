@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+	. "github.com/BGrewell/go-execute"
 )
 
 // Rule represents a rule which can be added to or removed from iptables.
