@@ -20,16 +20,18 @@ func (t TargetDNat) String() string {
 	parts := make([]string, 0)
 	parts = append(parts, "DNAT")
 	parts = append(parts, TargetDNatStr)
+	dstPart := ""
 	if t.DestinationIpRange != "" {
-		parts = append(parts, t.DestinationIpRange)
+		dstPart = t.DestinationIpRange
 	} else {
-		parts = append(parts, t.DestinationIp)
+		dstPart = t.DestinationIp
 	}
 	if t.DestinationPortRange != "" {
-		parts = append(parts, fmt.Sprintf(":%s", t.DestinationPortRange))
+		dstPart = fmt.Sprintf("%s:%s", dstPart, t.DestinationPortRange)
 	} else if t.DestinationPort != "" {
-		parts = append(parts, fmt.Sprintf(":%s", t.DestinationPort))
+		dstPart = fmt.Sprintf("%s:%s", dstPart, t.DestinationPort)
 	}
+	parts = append(parts, dstPart)
 
 	return TargetJump{
 		Value: strings.Join(parts, " "),
@@ -38,7 +40,7 @@ func (t TargetDNat) String() string {
 
 // Returns if the target is valid when applied with the specified rule
 func (t TargetDNat) Validate(rule Rule) error {
-	// Only valid on the mangle table
+	// Only valid on the nat table
 	if rule.Table != TableNat {
 		return fmt.Errorf("target DNAT is only valid on the 'nat' table")
 	}
@@ -47,6 +49,9 @@ func (t TargetDNat) Validate(rule Rule) error {
 	}
 	if t.DestinationPort != "" && t.DestinationPortRange != "" && rule.Protocol.Value == "" {
 		return fmt.Errorf("target DNAT destination port(s) are only valid when a protocol is specified on the rule")
+	}
+	if t.DestinationIp == "" && t.DestinationIpRange == "" {
+		return fmt.Errorf("target DNAT requires a destination ip address or range")
 	}
 	return nil
 }

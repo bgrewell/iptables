@@ -17,7 +17,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="/usr/local/go" />
+  <component name="GOROOT" path="C:\Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -66,5 +66,31 @@
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2372" y="630" key="#GOROOT" timestamp="1607983582142">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="2372" y="630" key="#GOROOT/0.0.3440.1400@0.0.3440.1400" timestamp="1607983582142" />
+    <state width="1657" height="375" key="GridCell.Tab.0.bottom" timestamp="1605821359637">
+      <screen x="0" y="27" width="3440" height="1356" />
+    </state>
+    <state width="1657" height="375" key="GridCell.Tab.0.bottom/0.27.3440.1356@0.27.3440.1356" timestamp="1605821359637" />
+    <state width="1657" height="375" key="GridCell.Tab.0.center" timestamp="1605821359637">
+      <screen x="0" y="27" width="3440" height="1356" />
+    </state>
+    <state width="1657" height="375" key="GridCell.Tab.0.center/0.27.3440.1356@0.27.3440.1356" timestamp="1605821359637" />
+    <state width="1657" height="375" key="GridCell.Tab.0.left" timestamp="1605821359636">
+      <screen x="0" y="27" width="3440" height="1356" />
+    </state>
+    <state width="1657" height="375" key="GridCell.Tab.0.left/0.27.3440.1356@0.27.3440.1356" timestamp="1605821359636" />
+    <state width="1657" height="375" key="GridCell.Tab.0.right" timestamp="1605821359637">
+      <screen x="0" y="27" width="3440" height="1356" />
+    </state>
+    <state width="1657" height="375" key="GridCell.Tab.0.right/0.27.3440.1356@0.27.3440.1356" timestamp="1605821359637" />
+    <state x="345" y="340" width="1022" height="737" key="SettingsEditor" timestamp="1605719639357">
+      <screen x="0" y="27" width="3440" height="1356" />
+    </state>
+    <state x="345" y="340" width="1022" height="737" key="SettingsEditor/0.27.3440.1356@0.27.3440.1356" timestamp="1605719639357" />
   </component>
 </project>
