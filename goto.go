@@ -9,7 +9,7 @@ const (
 )
 
 type TargetGoto struct {
-	Value string
+	Value string `json:"value" yaml:"value" xml:"value"`
 }
 
 func (t TargetGoto) String() string {

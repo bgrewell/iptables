@@ -21,8 +21,8 @@ const (
 )
 
 type TargetConnMark struct {
-	MarkType ConnMarkType
-	Value    int
+	MarkType ConnMarkType `json:"mark_type" yaml:"mark_type" xml:"mark_type"`
+	Value    int          `json:"value" yaml:"value" xml:"value"`
 }
 
 func (t TargetConnMark) String() string {

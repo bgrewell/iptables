@@ -10,10 +10,10 @@ const (
 )
 
 type TargetDNat struct {
-	DestinationIp        string
-	DestinationIpRange   string
-	DestinationPort      string
-	DestinationPortRange string
+	DestinationIp        string `json:"destination_ip" yaml:"destination_ip" xml:"destination_ip"`
+	DestinationIpRange   string `json:"destination_ip_range" yaml:"destination_ip_range" xml:"destination_ip_range"`
+	DestinationPort      string `json:"destination_port" yaml:"destination_port" xml:"destination_port"`
+	DestinationPortRange string `json:"destination_port_range" yaml:"destination_port_range" xml:"destination_port_range"`
 }
 
 func (t TargetDNat) String() string {

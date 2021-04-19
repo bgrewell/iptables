@@ -10,7 +10,7 @@ const (
 )
 
 type TargetDSCP struct {
-	Value int
+	Value int `json:"value" yaml:"value" xml:"value"`
 }
 
 func (t TargetDSCP) String() string {
@@ -29,7 +29,7 @@ func (t TargetDSCP) Validate(rule Rule) error {
 }
 
 type TargetDSCPClass struct {
-	Class string
+	Class string `json:"class" yaml:"class" xml:"class"`
 }
 
 func (t TargetDSCPClass) String() string {

@@ -114,7 +114,6 @@ func GetInvertPattern(inverted bool) string {
 	return ""
 }
 
-
 func GetRuleIndex(table string, chain string, ipVer IPVer) (ruleNum int, err error) {
 	// note: the only rule that we should need to figure out the rule number for is the append, an insert we are
 	// going to be in control of passing the index to insert it at. For an append we are going to naively assume that

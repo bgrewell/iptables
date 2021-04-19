@@ -9,7 +9,7 @@ const (
 )
 
 type TargetJump struct {
-	Value string
+	Value string `json:"value" yaml:"value" xml:"value"`
 }
 
 func (t TargetJump) String() string {

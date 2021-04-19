@@ -1,6 +1,5 @@
 package iptables
 
-
 import (
 	"bytes"
 	"context"

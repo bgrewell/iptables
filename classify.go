@@ -9,8 +9,8 @@ const (
 )
 
 type TargetClassify struct {
-	Major int
-	Minor int
+	Major int `json:"major" yaml:"major" xml:"major"`
+	Minor int `json:"minor" yaml:"minor" xml:"minor"`
 }
 
 func (t TargetClassify) String() string {

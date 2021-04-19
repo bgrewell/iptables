@@ -10,10 +10,10 @@ const (
 )
 
 type TargetSNat struct {
-	SourceIp        string
-	SourceIpRange   string
-	SourcePort      string
-	SourcePortRange string
+	SourceIp        string `json:"source_ip" yaml:"source_ip" xml:"source_ip"`
+	SourceIpRange   string `json:"source_ip_range" yaml:"source_ip_range" xml:"source_ip_range"`
+	SourcePort      string `json:"source_port" yaml:"source_port" xml:"source_port"`
+	SourcePortRange string `json:"source_port_range" yaml:"source_port_range" xml:"source_port_range"`
 }
 
 func (t TargetSNat) String() string {

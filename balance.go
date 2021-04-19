@@ -9,8 +9,8 @@ const (
 )
 
 type TargetBalance struct {
-	StartingIpAddress string
-	EndingIpAddress   string
+	StartingIpAddress string `json:"starting_ip_address" yaml:"starting_ip_address" xml:"starting_ip_address"`
+	EndingIpAddress   string `json:"ending_ip_address" yaml:"ending_ip_address" xml:"ending_ip_address"`
 }
 
 func (t TargetBalance) String() string {
