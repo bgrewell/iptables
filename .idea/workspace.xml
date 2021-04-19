@@ -3,20 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="446b9332-7147-404f-8b0c-d822ab3d74a7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/balance.go" beforeDir="false" afterPath="$PROJECT_DIR$/balance.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/classify.go" beforeDir="false" afterPath="$PROJECT_DIR$/classify.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/common.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/connmark.go" beforeDir="false" afterPath="$PROJECT_DIR$/connmark.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/dnat.go" beforeDir="false" afterPath="$PROJECT_DIR$/dnat.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/dscp.go" beforeDir="false" afterPath="$PROJECT_DIR$/dscp.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/execute.go" beforeDir="false" afterPath="$PROJECT_DIR$/execute.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/goto.go" beforeDir="false" afterPath="$PROJECT_DIR$/goto.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/iptables.go" beforeDir="false" afterPath="$PROJECT_DIR$/iptables.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/jump.go" beforeDir="false" afterPath="$PROJECT_DIR$/jump.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/rule.go" beforeDir="false" afterPath="$PROJECT_DIR$/rule.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/snat.go" beforeDir="false" afterPath="$PROJECT_DIR$/snat.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/target.go" beforeDir="false" afterPath="$PROJECT_DIR$/target.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rule.go" beforeDir="false" afterPath="$PROJECT_DIR$/rule.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +33,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../dcc-ces-demo-control" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
@@ -63,8 +50,8 @@
       <module name="iptables" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/main.go" />
       <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/main.go" />
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -79,27 +66,5 @@
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1657" height="375" key="GridCell.Tab.0.bottom" timestamp="1605821359637">
-      <screen x="0" y="27" width="3440" height="1356" />
-    </state>
-    <state width="1657" height="375" key="GridCell.Tab.0.bottom/0.27.3440.1356@0.27.3440.1356" timestamp="1605821359637" />
-    <state width="1657" height="375" key="GridCell.Tab.0.center" timestamp="1605821359637">
-      <screen x="0" y="27" width="3440" height="1356" />
-    </state>
-    <state width="1657" height="375" key="GridCell.Tab.0.center/0.27.3440.1356@0.27.3440.1356" timestamp="1605821359637" />
-    <state width="1657" height="375" key="GridCell.Tab.0.left" timestamp="1605821359636">
-      <screen x="0" y="27" width="3440" height="1356" />
-    </state>
-    <state width="1657" height="375" key="GridCell.Tab.0.left/0.27.3440.1356@0.27.3440.1356" timestamp="1605821359636" />
-    <state width="1657" height="375" key="GridCell.Tab.0.right" timestamp="1605821359637">
-      <screen x="0" y="27" width="3440" height="1356" />
-    </state>
-    <state width="1657" height="375" key="GridCell.Tab.0.right/0.27.3440.1356@0.27.3440.1356" timestamp="1605821359637" />
-    <state x="345" y="340" width="1022" height="737" key="SettingsEditor" timestamp="1605719639357">
-      <screen x="0" y="27" width="3440" height="1356" />
-    </state>
-    <state x="345" y="340" width="1022" height="737" key="SettingsEditor/0.27.3440.1356@0.27.3440.1356" timestamp="1605719639357" />
   </component>
 </project>

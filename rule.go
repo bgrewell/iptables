@@ -8,6 +8,7 @@ import (
 
 // Rule represents a rule which can be added to or removed from iptables.
 type Rule struct {
+	Id              string           `json:"id,omitempty" yaml:"id" xml:"id"`
 	Table           string           `json:"table,omitempty" yaml:"table" xml:"table"`
 	Chain           string           `json:"chain,omitempty" yaml:"chain" xml:"chain"`
 	Target          ITarget          `json:"target,omitempty" yaml:"target" xml:"target"`
@@ -143,6 +144,10 @@ func (r *Rule) String() string {
 
 	if r.Target != nil {
 		output = append(output, r.Target.String())
+	}
+
+	if r.Id != "" {
+		output = append(output, fmt.Sprintf("-m comment --comment \"%s\"", r.Id))
 	}
 
 	return strings.Join(output, " ")
