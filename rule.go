@@ -17,7 +17,7 @@ type Rule struct {
 	Protocol        InvertableString `json:"protocol,omitempty" yaml:"protocol" xml:"protocol"`
 	Source          InvertableString `json:"source,omitempty" yaml:"source" xml:"source"`
 	Destination     InvertableString `json:"destination,omitempty" yaml:"destination" xml:"destination"`
-	SourcePort InvertableString `json:"source_port,omitempty" yaml:"source_port" xml:"source_port"`
+	SourcePort      InvertableString `json:"source_port,omitempty" yaml:"source_port" xml:"source_port"`
 	DestinationPort InvertableString `json:"destination_port,omitempty" yaml:"destination_port" xml:"destination_port"`
 	InputInterface  InvertableString `json:"input_interface,omitempty" yaml:"input_interface" xml:"input_interface"`
 	OutputInterface InvertableString `json:"output_interface,omitempty" yaml:"output_interface" xml:"output_interface"`
