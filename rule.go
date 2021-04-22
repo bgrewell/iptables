@@ -2,9 +2,9 @@ package iptables
 
 import (
 	"fmt"
+	. "github.com/BGrewell/go-execute"
 	"strconv"
 	"strings"
-	. "github.com/BGrewell/go-execute"
 )
 
 // Rule represents a rule which can be added to or removed from iptables.
@@ -17,6 +17,8 @@ type Rule struct {
 	Protocol        InvertableString `json:"protocol,omitempty" yaml:"protocol" xml:"protocol"`
 	Source          InvertableString `json:"source,omitempty" yaml:"source" xml:"source"`
 	Destination     InvertableString `json:"destination,omitempty" yaml:"destination" xml:"destination"`
+	SourcePort InvertableString `json:"source_port,omitempty" yaml:"source_port" xml:"source_port"`
+	DestinationPort InvertableString `json:"destination_port,omitempty" yaml:"destination_port" xml:"destination_port"`
 	InputInterface  InvertableString `json:"input_interface,omitempty" yaml:"input_interface" xml:"input_interface"`
 	OutputInterface InvertableString `json:"output_interface,omitempty" yaml:"output_interface" xml:"output_interface"`
 	Counters        CounterValues    `json:"counters,omitempty" yaml:"counters" xml:"counters"`
@@ -131,6 +133,16 @@ func (r *Rule) String() string {
 	if r.Destination.Value != "" {
 		invertChar := GetInvertPattern(r.Destination.Inverted)
 		output = append(output, fmt.Sprintf("%s--destination %s", invertChar, r.Destination.Value))
+	}
+
+	if r.SourcePort.Value != "" {
+		invertChar := GetInvertPattern(r.SourcePort.Inverted)
+		output = append(output, fmt.Sprintf("--match multiport %s--sports %s", invertChar, r.SourcePort.Value))
+	}
+
+	if r.DestinationPort.Value != "" {
+		invertChar := GetInvertPattern(r.DestinationPort.Inverted)
+		output = append(output, fmt.Sprintf("--match multiport %s--dports %s", invertChar, r.DestinationPort.Value))
 	}
 
 	if r.InputInterface.Value != "" {
