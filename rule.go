@@ -84,6 +84,16 @@ func (r *Rule) Replace() (err error) {
 
 // Delete removes a rule from the specified chain
 func (r *Rule) Delete() (err error) {
+	if r.Id != "" {
+		// if the rule has an id just use that to delete
+		err = DeleteByComment(r.Id)
+		if err != nil {
+			r.setState(false, r.Applied)
+			return err
+		}
+		r.setState(true, false)
+		return nil
+	}
 	if validation := r.Validate(); validation != nil {
 		return validation
 	}
