@@ -10,6 +10,7 @@ import (
 // Rule represents a rule which can be added to or removed from iptables.
 type Rule struct {
 	Id              string           `json:"id,omitempty" yaml:"id" xml:"id"`
+	Name            string           `json:"name,omitempty" yaml:"name" xml:"name"`
 	Table           string           `json:"table,omitempty" yaml:"table" xml:"table"`
 	Chain           string           `json:"chain,omitempty" yaml:"chain" xml:"chain"`
 	Target          ITarget          `json:"target,omitempty" yaml:"target" xml:"target"`
@@ -27,7 +28,7 @@ type Rule struct {
 	Debug           bool             `json:"debug,omitempty" yaml:"debug" xml:"debug"`
 	Valid           bool             `json:"valid,omitempty" yaml:"valid" xml:"valid"`
 	Applied         bool             `json:"applied,omitempty" yaml:"applied" xml:"applied"`
-	ipVersion       IPVer            `json:"ip_version,omitempty" yaml:"ip_version" xml:"ip_version"`
+	IpVersion       IPVer            `json:"ip_version,omitempty" yaml:"ip_version" xml:"ip_version"`
 }
 
 // Append adds a new rule to the specified chain at the end
@@ -42,7 +43,7 @@ func (r *Rule) Append() (err error) {
 		return err
 	}
 	r.setState(true, true)
-	r.RuleNumber, err = GetRuleIndex(r.Table, r.Chain, r.ipVersion)
+	r.RuleNumber, err = GetRuleIndex(r.Table, r.Chain, r.IpVersion)
 	if err != nil {
 		r.setState(false, true)
 	}
@@ -98,7 +99,7 @@ func (r *Rule) Delete() (err error) {
 func (r *Rule) String() string {
 	r.setDefaults()
 	var output = make([]string, 0)
-	binaryPath, err := GetIptablesBinaryPath(r.ipVersion)
+	binaryPath, err := GetIptablesBinaryPath(r.IpVersion)
 	if err != nil {
 		panic(err)
 	}
@@ -163,6 +164,10 @@ func (r *Rule) String() string {
 		output = append(output, fmt.Sprintf("-m comment --comment \"%s\"", r.Id))
 	}
 
+	if r.Name != "" {
+		output = append(output, fmt.Sprintf("-m comment --comment \"%s\"", r.Name))
+	}
+
 	return strings.Join(output, " ")
 }
 
@@ -187,8 +192,8 @@ func (r *Rule) executeRule() error {
 }
 
 func (r *Rule) setDefaults() {
-	if r.ipVersion == "" {
-		r.ipVersion = IPv4
+	if r.IpVersion == "" {
+		r.IpVersion = IPv4
 	}
 
 	if r.Target == nil {
