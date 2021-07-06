@@ -11,6 +11,7 @@ import (
 type Rule struct {
 	Id              string           `json:"id,omitempty" yaml:"id" xml:"id"`
 	Name            string           `json:"name,omitempty" yaml:"name" xml:"name"`
+	App             string           `json:"-" yaml:"-" xml:"-"`
 	Table           string           `json:"table,omitempty" yaml:"table" xml:"table"`
 	Chain           string           `json:"chain,omitempty" yaml:"chain" xml:"chain"`
 	Target          ITarget          `json:"target,omitempty" yaml:"target" xml:"target"`
@@ -166,6 +167,10 @@ func (r *Rule) String() string {
 
 	if r.Name != "" {
 		output = append(output, fmt.Sprintf("-m comment --comment \"%s\"", r.Name))
+	}
+
+	if r.App != "" {
+		output = append(output, fmt.Sprintf("-m comment --comment \"%s\"", r.App))
 	}
 
 	return strings.Join(output, " ")
