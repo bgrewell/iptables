@@ -237,17 +237,18 @@ func FindRuleByCommentWithPrefix(comment string, prefix *string) (location *Rule
 					c := rule[mark+start+3:mark+end]
 					c = strings.ReplaceAll(c, "\"", "")
 
+					match := comment
 					if prefix == nil {
 						// strip off app: | id: | name: prefix's
 						c = strings.ReplaceAll(c, "app:", "")
 						c = strings.ReplaceAll(c, "id:", "")
 						c = strings.ReplaceAll(c, "name:", "")
 					} else {
-						comment = fmt.Sprintf("%s:%s", *prefix, comment)
+						match = fmt.Sprintf("%s:%s", *prefix, comment)
 					}
 
 					mark = mark+end+2
-					if comment == c {
+					if match == c {
 						l := &RuleLocation{
 							Table: table,
 							Chain: chain,
