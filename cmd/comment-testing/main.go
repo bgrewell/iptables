@@ -41,7 +41,7 @@ func main() {
 	//}
 	//fmt.Println("deleted rule")
 
-	err := iptables.DeleteAllMatching("testing")
+	err := iptables.DeleteAllMatchingComments("testing")
 	if err != nil {
 		fmt.Printf("error: %v\n", err)
 	}

@@ -30,6 +30,46 @@ func AddCustomTable(table string) {
 	tables = append(tables, table)
 }
 
+func CommentExists(comment string) bool {
+	tableLock.Lock()
+	defer tableLock.Unlock()
+	_, err := FindRuleByComment(comment)
+	if err != nil && err == errNoMatch {
+		return false
+	}
+	return true
+}
+
+func IdExists(id string) bool {
+	tableLock.Lock()
+	defer tableLock.Unlock()
+	_, err := FindRuleById(id)
+	if err != nil && err == errNoMatch {
+		return false
+	}
+	return true
+}
+
+func NameExists(name string) bool {
+	tableLock.Lock()
+	defer tableLock.Unlock()
+	_, err := FindRuleByName(name)
+	if err != nil && err == errNoMatch {
+		return false
+	}
+	return true
+}
+
+func AppExists(app string) bool {
+	tableLock.Lock()
+	defer tableLock.Unlock()
+	_, err := FindRuleByApp(app)
+	if err != nil && err == errNoMatch {
+		return false
+	}
+	return true
+}
+
 func DeleteByComment(comment string) error {
 	tableLock.Lock()
 	defer tableLock.Unlock()
@@ -45,11 +85,101 @@ func DeleteByComment(comment string) error {
 	return nil
 }
 
-func DeleteAllMatching(comment string) error {
+func DeleteById(id string) error {
+	tableLock.Lock()
+	defer tableLock.Unlock()
+	location, err := FindRuleById(id)
+	if err != nil {
+		return err
+	}
+	deleteCmd := fmt.Sprintf("iptables -t %s -D %s %s", location.Table, location.Chain, location.Line)
+	_, err = ExecuteCmd(deleteCmd)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func DeleteByName(name string) error {
+	tableLock.Lock()
+	defer tableLock.Unlock()
+	location, err := FindRuleByName(name)
+	if err != nil {
+		return err
+	}
+	deleteCmd := fmt.Sprintf("iptables -t %s -D %s %s", location.Table, location.Chain, location.Line)
+	_, err = ExecuteCmd(deleteCmd)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func DeleteByApp(app string) error {
+	tableLock.Lock()
+	defer tableLock.Unlock()
+	location, err := FindRuleByApp(app)
+	if err != nil {
+		return err
+	}
+	deleteCmd := fmt.Sprintf("iptables -t %s -D %s %s", location.Table, location.Chain, location.Line)
+	_, err = ExecuteCmd(deleteCmd)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func DeleteAllMatchingComments(comment string) error {
 	tableLock.Lock()
 	defer tableLock.Unlock()
 	for {
 		err := DeleteByComment(comment)
+		if err != nil && err == errNoMatch {
+			break
+		} else if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+func DeleteAllMatchingId(id string) error {
+	tableLock.Lock()
+	defer tableLock.Unlock()
+	for {
+		err := DeleteById(id)
+		if err != nil && err == errNoMatch {
+			break
+		} else if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+func DeleteAllMatchingName(name string) error {
+	tableLock.Lock()
+	defer tableLock.Unlock()
+	for {
+		err := DeleteByName(name)
+		if err != nil && err == errNoMatch {
+			break
+		} else if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+func DeleteAllMatchingApp(app string) error {
+	tableLock.Lock()
+	defer tableLock.Unlock()
+	for {
+		err := DeleteByApp(app)
 		if err != nil && err == errNoMatch {
 			break
 		} else if err != nil {
