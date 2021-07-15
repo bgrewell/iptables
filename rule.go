@@ -191,6 +191,12 @@ func (r *Rule) Validate() (err error) {
 	if err := r.Target.Validate(*r); err != nil {
 		return err
 	}
+	if IdExists(r.Id) {
+		return fmt.Errorf("a rule with id %s already exists", r.Id)
+	}
+	if NameExists(r.Name) {
+		return fmt.Errorf("a rule with name %s already exists", r.Name)
+	}
 	return nil
 }
 
