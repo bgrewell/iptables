@@ -61,6 +61,25 @@ func DeleteAllMatching(comment string) error {
 }
 
 func FindRuleByComment(comment string) (location *RuleLocation, err error) {
+	return FindRuleByCommentWithPrefix(comment, nil)
+}
+
+func FindRuleById(id string) (location *RuleLocation, err error) {
+	prefix := "id"
+	return FindRuleByCommentWithPrefix(id, &prefix)
+}
+
+func FindRuleByName(name string) (location *RuleLocation, err error) {
+	prefix := "name"
+	return FindRuleByCommentWithPrefix(name, &prefix)
+}
+
+func FindRuleByApp(app string) (location *RuleLocation, err error) {
+	prefix := "app"
+	return FindRuleByCommentWithPrefix(app, &prefix)
+}
+
+func FindRuleByCommentWithPrefix(comment string, prefix *string) (location *RuleLocation, err error) {
 	for _, table := range tables {
 		chains, err := EnumerateChains(table)
 		if err != nil {
@@ -87,6 +106,16 @@ func FindRuleByComment(comment string) (location *RuleLocation, err error) {
 					// trim off the markers and spaces
 					c := rule[mark+start+3:mark+end]
 					c = strings.ReplaceAll(c, "\"", "")
+
+					if prefix == nil {
+						// strip off app: | id: | name: prefix's
+						c = strings.ReplaceAll(c, "app:", "")
+						c = strings.ReplaceAll(c, "id:", "")
+						c = strings.ReplaceAll(c, "name:", "")
+					} else {
+						comment = fmt.Sprintf("%s:%s", *prefix, comment)
+					}
+
 					mark = mark+end+2
 					if comment == c {
 						l := &RuleLocation{

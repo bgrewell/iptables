@@ -172,15 +172,15 @@ func (r *Rule) String() string {
 	}
 
 	if r.Id != "" {
-		output = append(output, fmt.Sprintf("-m comment --comment \"%s\"", r.Id))
+		output = append(output, fmt.Sprintf("-m comment --comment \"id:%s\"", r.Id))
 	}
 
 	if r.Name != "" {
-		output = append(output, fmt.Sprintf("-m comment --comment \"%s\"", r.Name))
+		output = append(output, fmt.Sprintf("-m comment --comment \"name:%s\"", r.Name))
 	}
 
 	if r.App != "" {
-		output = append(output, fmt.Sprintf("-m comment --comment \"%s\"", r.App))
+		output = append(output, fmt.Sprintf("-m comment --comment \"app:%s\"", r.App))
 	}
 
 	return strings.Join(output, " ")
