@@ -3,6 +3,7 @@ package iptables
 import (
 	"fmt"
 	. "github.com/BGrewell/go-execute"
+	"log"
 	"strings"
 	"sync"
 )
@@ -290,3 +291,105 @@ func EnumerateChains(table string) (chains []string, err error) {
 	}
 	return chains, nil
 }
+
+func EnumerateUsedTables() (tables []string, err error) {
+	tables = make([]string, 0)
+	cmd := "cat /proc/net/ip_tables_names"
+	result, err := ExecuteCmd(cmd)
+	if err != nil {
+		return nil, err
+	}
+	lines := strings.Split(result, "\n")
+	for _, line := range lines {
+		if strings.TrimSpace(line) != "" {
+			tables = append(tables, line)
+		}
+	}
+	return tables, nil
+}
+
+func ConvertIptablesLineToRule(table string, line string) (rule *Rule, err error) {
+	rule = &Rule{
+		Table: table,
+	}
+	fields := strings.Fields(line)
+	inverted := false
+	for idx := 0; idx < len(fields); {
+		// Detect negation and increment the index
+		if fields[idx] == "!" {
+			inverted = true
+			idx += 1
+		}
+
+		switch fields[idx] {
+		case "-A", "-I":	// shouldn't ever be a -I but just in case
+			rule.Chain = fields[idx+1]
+			idx++
+		case "-s":
+			rule.Source = InvertableString{
+				Value:    fields[idx+1],
+				Inverted: inverted,
+			}
+			idx++
+		case "-d":
+			rule.Destination = InvertableString{
+				Value:    fields[idx+1],
+				Inverted: inverted,
+			}
+			idx++
+		case "-p":
+			rule.Protocol = InvertableString{
+				Value:    fields[idx+1],
+				Inverted: inverted,
+			}
+			idx++
+		case "-m":
+			rule.Match = InvertableString{
+				Value:    fields[idx+1],
+				Inverted: inverted,
+			}
+			idx++
+		case "--sport", "--sports":
+			rule.SourcePort = InvertableString{
+				Value:    fields[idx+1],
+				Inverted: inverted,
+			}
+			idx++
+		case "--dport", "--dports":
+			rule.DestinationPort = InvertableString{
+				Value:    fields[idx+1],
+				Inverted: inverted,
+			}
+			idx++
+
+		default:
+			log.Printf("warning: %s not a known field for iptables import\n", fields[idx])
+			idx++
+		}
+
+		// Reset inverted
+		inverted = false
+	}
+	return rule, nil
+}
+
+// 1: List/Enumerate all tables?? Just assume that nat/mangle/filter/raw are the only ones?
+// 2: Get all rules in a consumable format -S?
+// What do we need to know?
+// 	- table
+//	- chain
+//  - parameters
+
+//	0: pkts
+//	1: bytes
+//	2: target
+//	3: protocol
+//	4: options
+//	5: input interface
+//	6: output interface
+//	7: source address
+//	8: destination address
+//	9: extra stuff
+
+// Use -S option to get a more verbose output for the rules? We don't get packet counts so we would need to figure out
+// how to get those in addition
